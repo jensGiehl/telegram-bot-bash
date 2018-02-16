@@ -30,22 +30,6 @@ send_normal_message() {
 	done
 }
 
-send_markdown_message() {
-	text="$1"
-	until [ $(echo -n "$text" | wc -m) -eq 0 ]; do
-		res=$(curl -s "$MSG_URL" -d "chat_id=$TELEGRAM_CHAT_ID" -d "text=$(urlencode "${text:0:4096}")" -d "parse_mode=markdown" -d "disable_web_page_preview=true")
-		text="${text:4096}"
-	done
-}
-
-send_html_message() {
-	text="$1"
-	until [ $(echo -n "$text" | wc -m) -eq 0 ]; do
-		res=$(curl -s "$MSG_URL" -F "chat_id=$TELEGRAM_CHAT_ID" -F "text=$(urlencode "${text:0:4096}")" -F "parse_mode=html")
-		text="${text:4096}"
-	done
-}
-
 send_file() {
 	[ "$1" = "" ] && return
 	local chat_id=$TELEGRAM_CHAT_ID
@@ -113,18 +97,6 @@ do
 		-t|--text)
 		echo "Sending text"
 		send_normal_message "$2"
-		shift # past argument
-		shift # past value
-		;;
-		-h|--html)
-		echo "Sending HTML"
-		send_html_message "$2"
-		shift # past argument
-		shift # past value
-		;;
-		-m|--markdown)
-		echo "Sending markdown"
-		send_markdown_message "$2"
 		shift # past argument
 		shift # past value
 		;;
