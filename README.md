@@ -11,8 +11,6 @@ field on your Telegram app and type `@botfather`, you should be able
 to initiate a conversation. Be careful not to send it to the wrong
 contact, because some users has similar usernames to `botfather`.
 
-   ![botfather initial conversation](http://i.imgur.com/aI26ixR.png)
-
 2. @botfather replies with `Alright, a new bot. How are we going to
 call it? Please choose a name for your bot.`
 
@@ -41,8 +39,6 @@ https://core.telegram.org/bots/api
 7. Note down the 'token' mentioned above.
 
 8. Type `/setprivacy` to @botfather.
-
-   ![botfather later conversation](http://i.imgur.com/tWDVvh4.png)
 
 9. @botfather replies with `Choose a bot to change group messages settings.`
 
