@@ -34,7 +34,7 @@ send_file() {
 	[ "$1" = "" ] && return
 	local chat_id=$TELEGRAM_CHAT_ID
 	local file=$1
-	echo "$file" | grep -qE $FILE_REGEX || return
+	#echo "$file" | grep -qE $FILE_REGEX || return
 	local ext="${file##*.}"
 	case $ext in
         	mp3|flac)
@@ -73,7 +73,6 @@ send_file() {
 			local CAPTION="$3"
 			;;
 	esac
-	send_action $chat_id $STATUS
 	res=$(curl -s "$CUR_URL" -F "chat_id=$chat_id" -F "$WHAT=@$file" -F "caption=$CAPTION")
 }
 
