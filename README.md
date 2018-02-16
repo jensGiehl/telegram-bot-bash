@@ -57,6 +57,15 @@ group. This step is up to you actually.
 
 13. @botfather replies with `Success! The new status is: DISABLED. /help`
 
+### Get Chat Id
+1. Click on the link @botfather provides (e.g. `telegram.me/telesample_bot`).
+
+2. Send any text to the bot.
+
+3. Open `https://api.telegram.org/bot<TOKEN>/getUpdates` in your browser (note: replace `<TOKEN>` with your token (see step 7).
+
+4. In the response you will find the Chat Id
+
 ### Install bashbot
 Clone the repository:
 ```
