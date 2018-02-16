@@ -15,6 +15,7 @@ DOCUMENT_URL=$URL'/sendDocument'
 STICKER_URL=$URL'/sendSticker'
 
 FILE_URL='https://api.telegram.org/file/bot'$TELEGRAM_BOTNAME'/'
+FILE_REGEX='/home/pi/.*'
 
 urlencode() {
 	echo "$*" | sed 's:%:%25:g;s: :%20:g;s:<:%3C:g;s:>:%3E:g;s:#:%23:g;s:{:%7B:g;s:}:%7D:g;s:|:%7C:g;s:\\:%5C:g;s:\^:%5E:g;s:~:%7E:g;s:\[:%5B:g;s:\]:%5D:g;s:`:%60:g;s:;:%3B:g;s:/:%2F:g;s:?:%3F:g;s^:^%3A^g;s:@:%40:g;s:=:%3D:g;s:&:%26:g;s:\$:%24:g;s:\!:%21:g;s:\*:%2A:g'
@@ -93,3 +94,45 @@ send_file() {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+while [[ $# -gt 0 ]]
+do
+	key="$1"
+
+	case $key in
+		-t|--text)
+		echo "Sending text"
+		send_normal_message "$2"
+		shift # past argument
+		shift # past value
+		;;
+		-h|--html)
+		echo "Sending HTML"
+		send_html_message "$2"
+		shift # past argument
+		shift # past value
+		;;
+		-m|--markdown)
+		echo "Sending markdown"
+		send_markdown_message "$2"
+		shift # past argument
+		shift # past value
+		;;
+		-f|--file)
+                echo "Sending file $2"
+                send_file "$2"
+                shift # past argument
+                shift # past value
+                ;;
+	esac
+done
