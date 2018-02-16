@@ -38,25 +38,6 @@ https://core.telegram.org/bots/api
 
 7. Note down the 'token' mentioned above.
 
-8. Type `/setprivacy` to @botfather.
-
-9. @botfather replies with `Choose a bot to change group messages settings.`
-
-10. Type `@telesample_bot` (change to the username you set at step 5
-above, but start it with `@`)
-
-11. @botfather replies with
-
-    'Enable' - your bot will only receive messages that either start
-with the '/' symbol or mention the bot by username.
-    'Disable' - your bot will receive all messages that people send to groups.
-    Current status is: ENABLED
-
-12. Type `Disable` to let your bot receive all messages sent to a
-group. This step is up to you actually.
-
-13. @botfather replies with `Success! The new status is: DISABLED. /help`
-
 ### Get Chat Id
 1. Click on the link @botfather provides (e.g. `telegram.me/telesample_bot`).
 
